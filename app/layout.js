@@ -14,8 +14,8 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata = {
-  title: "Keisuke Kimura | Web Creator",
-  description: "飲食店専門のWeb制作屋さん",
+  title: "Rumisense | ルミセンス",
+description: "制作費無料・月額9,800円のWeb制作。修正24時間以内対応。",
 };
 
 export default function RootLayout({ children }) {
