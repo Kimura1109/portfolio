@@ -85,7 +85,7 @@ export default function Home() {
           <li><a href="#flow" className="hover:text-black transition-colors">FLOW</a></li>
           <li><a href="#about" className="hover:text-black transition-colors">ABOUT</a></li>
           <li>
-            <a href="#contact" className="bg-black text-white px-6 py-2 text-xs tracking-widest hover:bg-[#333] transition-colors">
+            <a href="#contact" className="bg-[#1a2f5e] text-white px-6 py-2 text-xs tracking-widest hover:bg-[#333] transition-colors">
               無料相談
             </a>
           </li>
@@ -138,7 +138,7 @@ export default function Home() {
       </section>
 
       {/* 強み */}
-      <section className="py-24 px-16 bg-black text-white">
+      <section className="py-24 px-16 bg-[#1a2f5e] text-white">
         <div className="max-w-5xl mx-auto">
           <div className="mb-16">
             <p className="text-xs tracking-[0.5em] text-[#666] mb-3">WHY RUMISENSE</p>
@@ -253,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-32 px-16 bg-black text-white">
+      <section id="contact" className="py-32 px-16 bg-[#1a2f5e] text-white">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs tracking-[0.5em] text-[#666] mb-3">FREE CONSULTATION</p>
           <h3 className="text-4xl font-[family-name:var(--font-cormorant)] font-light mb-6">まず、話しましょう。</h3>
@@ -273,7 +273,7 @@ export default function Home() {
       </section>
 
       {/* フッター */}
-      <footer className="py-8 bg-black text-center border-t border-[#222]">
+      <footer className="py-8 bg-[#1a2f5e] text-center border-t border-[#222]">
         <p className="text-xs tracking-widest text-[#444] mb-1">RUMISENSE / ルミセンス</p>
         <p className="text-xs text-[#333]">© 2024 Keisuke Kimura</p>
       </footer>
