@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -21,58 +21,80 @@ function ContactForm() {
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit} className="text-left space-y-6 mt-8">
-      <div>
-        <label className="text-xs tracking-widest text-[#999] block mb-2">お名前</label>
-        <input
-          type="text"
-          required
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="w-full bg-transparent border border-[#333] text-white px-4 py-3 text-sm focus:outline-none focus:border-white transition-colors"
-          placeholder="山田 太郎"
-        />
+return (
+    <form onSubmit={handleSubmit} className="text-left mt-8" style={{maxWidth: '560px', margin: '32px auto 0'}}>
+      <div style={{border: '0.5px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.04)'}}>
+        <div style={{display: 'flex', borderBottom: '0.5px solid rgba(255,255,255,0.1)'}}>
+          <div style={{width: '180px', flexShrink: 0, padding: '18px 24px', borderRight: '0.5px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'}}>
+            <span style={{fontSize: '11px', letterSpacing: '0.15em', color: '#7a9cc8'}}>お名前</span>
+            <span style={{fontSize: '9px', color: '#c06060'}}>必須</span>
+          </div>
+          <div style={{flex: 1, display: 'flex', alignItems: 'center'}}>
+            <input type="text" required value={form.name} onChange={(e) => setForm({...form, name: e.target.value})}
+              style={{width: '100%', background: 'transparent', border: 'none', outline: 'none', padding: '18px 24px', fontSize: '13px', color: '#fff', fontFamily: 'inherit'}}
+              placeholder="山田 太郎" />
+          </div>
+        </div>
+        <div style={{display: 'flex', borderBottom: '0.5px solid rgba(255,255,255,0.1)'}}>
+          <div style={{width: '180px', flexShrink: 0, padding: '18px 24px', borderRight: '0.5px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'}}>
+            <span style={{fontSize: '11px', letterSpacing: '0.15em', color: '#7a9cc8'}}>メールアドレス</span>
+            <span style={{fontSize: '9px', color: '#c06060'}}>必須</span>
+          </div>
+          <div style={{flex: 1, display: 'flex', alignItems: 'center'}}>
+            <input type="email" required value={form.email} onChange={(e) => setForm({...form, email: e.target.value})}
+              style={{width: '100%', background: 'transparent', border: 'none', outline: 'none', padding: '18px 24px', fontSize: '13px', color: '#fff', fontFamily: 'inherit'}}
+              placeholder="example@email.com" />
+          </div>
+        </div>
+        <div style={{display: 'flex'}}>
+          <div style={{width: '180px', flexShrink: 0, padding: '18px 24px', borderRight: '0.5px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'}}>
+            <span style={{fontSize: '11px', letterSpacing: '0.15em', color: '#7a9cc8'}}>メッセージ</span>
+            <span style={{fontSize: '9px', color: '#c06060'}}>必須</span>
+          </div>
+          <div style={{flex: 1}}>
+            <textarea required value={form.message} onChange={(e) => setForm({...form, message: e.target.value})} rows={5}
+              style={{width: '100%', background: 'transparent', border: 'none', outline: 'none', padding: '18px 24px', fontSize: '13px', color: '#fff', fontFamily: 'inherit', resize: 'none'}}
+              placeholder="お気軽にご相談ください" />
+          </div>
+        </div>
       </div>
-      <div>
-        <label className="text-xs tracking-widest text-[#999] block mb-2">メールアドレス</label>
-        <input
-          type="email"
-          required
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="w-full bg-transparent border border-[#333] text-white px-4 py-3 text-sm focus:outline-none focus:border-white transition-colors"
-          placeholder="example@email.com"
-        />
-      </div>
-      <div>
-        <label className="text-xs tracking-widest text-[#999] block mb-2">メッセージ</label>
-        <textarea
-          required
-          value={form.message}
-          onChange={(e) => setForm({ ...form, message: e.target.value })}
-          rows={5}
-          className="w-full bg-transparent border border-[#333] text-white px-4 py-3 text-sm focus:outline-none focus:border-white transition-colors resize-none"
-          placeholder="お気軽にご相談ください"
-        />
-      </div>
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className="w-full bg-white text-black text-xs tracking-widest py-4 hover:bg-[#e8e8e8] transition-all duration-300 disabled:opacity-50"
-      >
-        {status === "sending" ? "送信中..." : "無料相談を予約する →"}
+
+      <button type="submit" disabled={status === 'sending'}
+        style={{width: '100%', marginTop: '1px', background: '#fff', color: '#1a2f5e', border: 'none', padding: '18px', fontSize: '11px', letterSpacing: '0.3em', cursor: 'pointer', fontFamily: 'inherit', opacity: status === 'sending' ? 0.5 : 1}}>
+        {status === 'sending' ? '送信中...' : '送信する →'}
       </button>
-      {status === "success" && (
-        <p className="text-center text-sm text-green-400">✓ 送信完了しました！近日中にご連絡します。</p>
+
+      <p style={{fontSize: '11px', color: '#4a6fa5', marginTop: '20px', letterSpacing: '0.1em', textAlign: 'center'}}>通常24時間以内にご返信します</p>
+
+      {status === 'success' && (
+        <p style={{textAlign: 'center', fontSize: '13px', color: '#6fcf97', marginTop: '16px'}}>✓ 送信完了しました！近日中にご連絡します。</p>
       )}
-      {status === "error" && (
-        <p className="text-center text-sm text-red-400">送信に失敗しました。時間をおいて再度お試しください。</p>
+      {status === 'error' && (
+        <p style={{textAlign: 'center', fontSize: '13px', color: '#eb5757', marginTop: '16px'}}>送信に失敗しました。時間をおいて再度お試しください。</p>
       )}
     </form>
   );
 }
+function useScrollAnimation() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".animate-fadeUp").forEach((el) => {
+      observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+}
 export default function Home() {
+  useScrollAnimation();
   const works = [
     {
       title: "KOTO COFFEE",
@@ -169,20 +191,30 @@ export default function Home() {
       {/* ヒーロー */}
       <section className="min-h-screen flex flex-col justify-between px-16 pt-20">
         <div className="max-w-5xl mt-20">
-          <p className="text-xs tracking-[0.5em] text-[#999] mb-8">WEB CREATION</p>
+          <p className="text-xs tracking-[0.5em] text-[#999] mb-8 hero-sub">WEB CREATION</p>
           <h2 className="text-7xl font-[family-name:var(--font-cormorant)] font-light leading-tight mb-8">
             あなたの想いを、<br />
             <span className="italic">Webで形に。</span>
           </h2>
           <div className="w-16 h-px bg-black mb-8" />
-          <p className="text-base text-[#666] leading-8 max-w-lg mb-4">
-            制作費<span className="font-bold text-black text-lg">¥0</span>、月額<span className="font-bold text-black text-lg">¥9,800</span>から。
-          </p>
-          <p className="text-sm text-[#666] leading-8 max-w-lg mb-12">
-            修正依頼から<span className="font-bold text-black">24時間以内</span>に対応。<br />
-            大手にはできない、一人一人への丁寧な向き合い方がRumisenseの強みです。
-          </p>
-          <div className="flex gap-6">
+         <p className="text-sm text-[#666] leading-8 max-w-lg mb-8">
+  大手にはできない、一人一人への丁寧な向き合い方がRumisenseの強みです。
+</p>
+<div className="flex gap-6 mb-12">
+  {[
+    { num: "¥0", label: "制作費無料" },
+    { num: "24h", label: "修正対応" },
+    { num: "1名", label: "専任担当" },
+  ].map((item) => (
+    <div key={item.label} className="text-center">
+      <div className="w-28 h-28 rounded-full bg-[#1a2f5e] flex items-center justify-center">
+        <p className="text-2xl font-[family-name:var(--font-cormorant)] font-light text-white leading-none">{item.num}</p>
+      </div>
+      <p className="text-[10px] tracking-[0.2em] text-[#999] mt-2">{item.label}</p>
+    </div>
+  ))}
+</div>
+          <div className="flex gap-6 hero-btn">
             <a href="#contact" className="bg-black text-white text-xs tracking-widest px-10 py-4 hover:bg-[#333] transition-colors">
               無料相談を予約する
             </a>
@@ -211,8 +243,41 @@ export default function Home() {
         </div>
       </section>
 
+     {/* お悩み */}
+<section className="py-24 px-16 bg-white animate-fadeUp">
+  <div className="max-w-5xl mx-auto">
+    <div className="mb-16 text-center">
+      <p className="text-xs tracking-[0.5em] text-[#999] mb-3">PROBLEMS</p>
+      <h3 className="text-4xl font-[family-name:var(--font-cormorant)] font-light">
+        こんなお悩み、<span className="italic">ありませんか？</span>
+      </h3>
+    </div>
+    <div className="max-w-2xl mx-auto space-y-3">
+      {[
+        "Web制作会社に頼んだら見積もりが高すぎた——",
+        "修正を頼んだら何日も待たされた——",
+        "担当者が変わるたびに説明し直しが必要だった——",
+      ].map((text, i) => (
+        <div key={i} className="flex items-center gap-6 px-8 py-5 bg-[#f8f8f8]" style={{borderLeft: '3px solid #1a2f5e'}}>
+          <span className="text-2xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e] min-w-[32px]">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <p className="text-sm text-[#333] leading-8">{text}</p>
+        </div>
+      ))}
+      <div className="mt-8 p-6 bg-[#f0f4fa] text-center">
+        <p className="text-sm text-[#1a2f5e] leading-8">
+          Rumisenseなら、<span className="font-bold">すべて解決できます。</span><br />
+          一人が最初から最後まで、責任を持って対応します。
+        </p>
+      </div>
+    </div>
+  </div>
+</section> 
+     
       {/* 強み */}
-      <section className="py-24 px-16 bg-[#1a2f5e] text-white">
+      
+     <section className="py-24 px-16 bg-[#1a2f5e] text-white animate-fadeUp">
         <div className="max-w-5xl mx-auto">
           <div className="mb-16">
             <p className="text-xs tracking-[0.5em] text-[#666] mb-3">WHY RUMISENSE</p>
@@ -230,8 +295,38 @@ export default function Home() {
         </div>
       </section>
 
+{/* 価格インパクト */}
+<section className="py-24 px-16 bg-[#1a2f5e] text-white animate-fadeUp">
+  <div className="max-w-5xl mx-auto">
+    <div className="mb-16 text-center">
+      <p className="text-xs tracking-[0.5em] text-[#4a6fa5] mb-3">PRICING</p>
+      <h3 className="text-4xl font-[family-name:var(--font-cormorant)] font-light text-white">
+        制作費、<span className="not-italic">¥0。</span>
+      </h3>
+      <p className="text-sm text-[#7a9cc8] mt-4">初期費用なし。月額だけでプロのサイトが持てます。</p>
+    </div>
+    <div className="max-w-2xl mx-auto flex gap-px bg-white/10">
+      <div className="flex-1 bg-white/5 px-6 py-8 text-center">
+        <p className="text-xs tracking-[0.2em] text-[#7a9cc8] mb-4">制作費</p>
+        <p className="text-6xl font-[family-name:var(--font-cormorant)] font-light text-white leading-none">¥0</p>
+        <p className="text-xs text-[#4a6fa5] mt-2">初期費用なし</p>
+      </div>
+      <div className="flex-1 bg-white px-6 py-8 text-center">
+        <p className="text-xs tracking-[0.2em] text-[#999] mb-4">月額</p>
+        <p className="text-6xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e] leading-none">¥9,800</p>
+        <p className="text-xs text-[#999] mt-2">× 6ヶ月〜</p>
+      </div>
+      <div className="flex-1 bg-white/5 px-6 py-8 text-center">
+        <p className="text-xs tracking-[0.2em] text-[#7a9cc8] mb-4">修正対応</p>
+        <p className="text-6xl font-[family-name:var(--font-cormorant)] font-light text-white leading-none">24h</p>
+        <p className="text-xs text-[#4a6fa5] mt-2">以内に対応</p>
+      </div>
+    </div>
+  </div>
+</section>
+
       {/* SERVICE */}
-      <section id="service" className="py-32 px-16 bg-[#f8f8f8]">
+      <section id="service" className="py-32 px-16 bg-[#f8f8f8] animate-fadeUp">
         <div className="max-w-5xl mx-auto">
           <div className="mb-16">
             <p className="text-xs tracking-[0.5em] text-[#999] mb-3">PRICING</p>
@@ -264,7 +359,7 @@ export default function Home() {
       </section>
 
       {/* FLOW */}
-      <section id="flow" className="py-32 px-16">
+      <section id="flow" className="py-32 px-16 animate-fadeUp">
         <div className="max-w-5xl mx-auto">
           <div className="mb-16">
             <p className="text-xs tracking-[0.5em] text-[#999] mb-3">HOW IT WORKS</p>
@@ -288,7 +383,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="py-32 px-16 bg-[#f8f8f8]">
+      <section id="about" className="py-32 px-16 bg-[#f8f8f8] animate-fadeUp">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-20">
           <div className="md:w-1/2 flex items-center justify-center">
             <div className="w-64 h-64 bg-[#e8e8e8] flex items-center justify-center text-[#999] text-sm tracking-widest">
@@ -327,7 +422,7 @@ export default function Home() {
       </section>
 
      {/* CONTACT */}
-<section id="contact" className="py-32 px-16 bg-[#1a2f5e] text-white">
+<section id="contact" className="py-32 px-16 bg-[#1a2f5e] text-white animate-fadeUp">
   <div className="max-w-3xl mx-auto text-center">
     <p className="text-xs tracking-[0.5em] text-[#666] mb-3">FREE CONSULTATION</p>
     <h3 className="text-4xl font-[family-name:var(--font-cormorant)] font-light mb-6">まず、話しましょう。</h3>

@@ -37,3 +37,35 @@ body {
 .animate-scroll:hover {
   animation-play-state: running;
 }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeUp {
+  opacity: 0;
+}
+
+.animate-fadeUp.visible {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.hero-title {
+  animation: fadeUp 1s ease 0.2s forwards;
+  opacity: 0;
+}
+
+.hero-sub {
+  animation: fadeUp 1s ease 0.5s forwards;
+  opacity: 0;
+}
+
+.hero-btn {
+  animation: fadeUp 1s ease 0.8s forwards;
+  opacity: 0;
+}
