@@ -1,3 +1,77 @@
+"use client";
+import { useState } from "react";
+
+function ContactForm() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+    if (res.ok) {
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+    } else {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="text-left space-y-6 mt-8">
+      <div>
+        <label className="text-xs tracking-widest text-[#999] block mb-2">お名前</label>
+        <input
+          type="text"
+          required
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          className="w-full bg-transparent border border-[#333] text-white px-4 py-3 text-sm focus:outline-none focus:border-white transition-colors"
+          placeholder="山田 太郎"
+        />
+      </div>
+      <div>
+        <label className="text-xs tracking-widest text-[#999] block mb-2">メールアドレス</label>
+        <input
+          type="email"
+          required
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          className="w-full bg-transparent border border-[#333] text-white px-4 py-3 text-sm focus:outline-none focus:border-white transition-colors"
+          placeholder="example@email.com"
+        />
+      </div>
+      <div>
+        <label className="text-xs tracking-widest text-[#999] block mb-2">メッセージ</label>
+        <textarea
+          required
+          value={form.message}
+          onChange={(e) => setForm({ ...form, message: e.target.value })}
+          rows={5}
+          className="w-full bg-transparent border border-[#333] text-white px-4 py-3 text-sm focus:outline-none focus:border-white transition-colors resize-none"
+          placeholder="お気軽にご相談ください"
+        />
+      </div>
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="w-full bg-white text-black text-xs tracking-widest py-4 hover:bg-[#e8e8e8] transition-all duration-300 disabled:opacity-50"
+      >
+        {status === "sending" ? "送信中..." : "無料相談を予約する →"}
+      </button>
+      {status === "success" && (
+        <p className="text-center text-sm text-green-400">✓ 送信完了しました！近日中にご連絡します。</p>
+      )}
+      {status === "error" && (
+        <p className="text-center text-sm text-red-400">送信に失敗しました。時間をおいて再度お試しください。</p>
+      )}
+    </form>
+  );
+}
 export default function Home() {
   const works = [
     {
@@ -252,25 +326,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="py-32 px-16 bg-[#1a2f5e] text-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs tracking-[0.5em] text-[#666] mb-3">FREE CONSULTATION</p>
-          <h3 className="text-4xl font-[family-name:var(--font-cormorant)] font-light mb-6">まず、話しましょう。</h3>
-          <div className="w-8 h-px bg-white mx-auto mb-10" />
-          <p className="text-sm text-[#999] leading-8 mb-4">
-            相談・お見積りは<span className="text-white font-bold">完全無料</span>です。<br />
-            「まだ検討中」でも大歓迎。ZOOMで30分、気軽にお話しましょう。
-          </p>
-          <p className="text-xs text-[#666] mb-12">※ 営業・勧誘は一切行いません</p>
-          <a
-            href="mailto:your@email.com"
-            className="inline-block bg-white text-black text-xs tracking-widest px-16 py-4 hover:bg-[#e8e8e8] transition-all duration-300"
-          >
-            無料相談を予約する →
-          </a>
-        </div>
-      </section>
+     {/* CONTACT */}
+<section id="contact" className="py-32 px-16 bg-[#1a2f5e] text-white">
+  <div className="max-w-3xl mx-auto text-center">
+    <p className="text-xs tracking-[0.5em] text-[#666] mb-3">FREE CONSULTATION</p>
+    <h3 className="text-4xl font-[family-name:var(--font-cormorant)] font-light mb-6">まず、話しましょう。</h3>
+    <div className="w-8 h-px bg-white mx-auto mb-10" />
+    <p className="text-sm text-[#999] leading-8 mb-4">
+      相談・お見積りは<span className="text-white font-bold">完全無料</span>です。<br />
+      「まだ検討中」でも大歓迎。ZOOMで30分、気軽にお話しましょう。
+    </p>
+    <p className="text-xs text-[#666] mb-12">※ 営業・勧誘は一切行いません</p>
+
+    <ContactForm />
+  </div>
+</section>
 
       {/* フッター */}
       <footer className="py-8 bg-[#1a2f5e] text-center border-t border-[#222]">
