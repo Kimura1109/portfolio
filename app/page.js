@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import Nav from "./components/Nav";
 
 function useScrollAnimation() {
   useEffect(() => {
@@ -22,6 +23,12 @@ function useScrollAnimation() {
 
 export default function Home() {
   useScrollAnimation();
+
+  const strengths = [
+    { icon: "⚡", title: "修正は最短24時間", desc: "依頼から最短24時間で対応。スピード感が違います。" },
+    { icon: "🤝", title: "担当者は常に同じ", desc: "大手と違い、最初から最後まで私一人が対応。毎回説明し直す手間がありません。" },
+    { icon: "👂", title: "丁寧なヒアリング", desc: "一人一人のビジネスと向き合い、本当に必要なサイトを一緒に考えます。" },
+  ];
 
   const works = [
     {
@@ -50,48 +57,60 @@ export default function Home() {
     },
   ];
 
-  const strengths = [
-    { icon: "⚡", title: "修正は24時間以内", desc: "依頼から24時間以内に対応。スピード感が違います。" },
-    { icon: "🤝", title: "担当者は常に同じ", desc: "大手と違い、最初から最後まで私一人が対応。毎回説明し直す手間がありません。" },
-    { icon: "👂", title: "丁寧なヒアリング", desc: "一人一人のビジネスと向き合い、本当に必要なサイトを一緒に考えます。" },
-  ];
 
   return (
     <main className="min-h-screen bg-white text-[#1a1a1a] font-[family-name:var(--font-noto-sans-jp)]">
 
-      {/* ナビゲーション */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 px-8 py-5 flex justify-between items-center border-b border-[#e8e8e8]">
-        <a href="/">
-          <h1 className="text-sm tracking-widest font-medium">RUMISENSE</h1>
-          <p className="text-[10px] tracking-widest text-[#999]">ルミセンス</p>
-        </a>
-        <ul className="flex gap-10 text-xs tracking-widest text-[#666]">
-          <li><a href="/service" className="hover:text-black transition-colors">SERVICE</a></li>
-          <li><a href="/flow" className="hover:text-black transition-colors">FLOW</a></li>
-          <li><a href="/about" className="hover:text-black transition-colors">ABOUT</a></li>
-          <li>
-            <a href="/contact" className="bg-[#1a2f5e] text-white px-6 py-2 text-xs tracking-widest hover:bg-[#333] transition-colors">
-              無料相談
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <Nav />
 
       {/* ヒーロー */}
-      <section className="min-h-screen flex flex-col justify-between px-16 pt-20 relative overflow-hidden" style={{backgroundImage: 'url(/hero-image.png)', backgroundSize: 'cover', backgroundPosition: 'center right', backgroundAttachment: 'fixed'}}>
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-0" />
-        <div className="relative z-10">
-          <div className="max-w-2xl mt-20">
-            <p className="text-xs tracking-[0.5em] text-[#999] mb-8 hero-sub">WEB CREATION</p>
-            <h2 className="text-7xl font-[family-name:var(--font-cormorant)] font-light leading-tight mb-8 hero-title">
+      <section className="relative overflow-hidden min-h-screen flex flex-col">
+
+        {/* PC: 元のデザイン */}
+        <div
+          className="absolute inset-0 hidden md:block"
+          style={{
+            backgroundImage: 'url(/hero-image.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center right',
+            backgroundAttachment: 'fixed',
+          }}
+        />
+        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-white via-white/80 to-transparent" />
+
+        {/* SP: 人物が写っている位置に合わせてpositionを調整 */}
+        <div
+          className="absolute inset-0 md:hidden"
+          style={{
+            backgroundImage: 'url(/hero-image.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: '75% center',
+          }}
+        />
+        {/* SP: 左（テキスト）→ 右（人物）へフェード */}
+        <div
+          className="absolute inset-0 md:hidden"
+          style={{
+            background: 'linear-gradient(to right, white 32%, rgba(255,255,255,0.75) 50%, rgba(255,255,255,0.1) 70%, transparent 100%)',
+          }}
+        />
+
+        {/* コンテンツ */}
+        <div className="relative z-10 flex-1 flex flex-col justify-between px-6 md:px-16 pt-16 md:pt-20 pb-16">
+          {/* SP: 左55%に収める / PC: 元のmax-w-2xl */}
+          <div className="w-[55%] md:w-auto md:max-w-2xl mt-6 md:mt-20">
+            <p className="text-xs tracking-[0.5em] text-[#999] mb-5 md:mb-8 hero-sub">WEB CREATION</p>
+            <h2 className="text-[1.75rem] md:text-7xl font-[family-name:var(--font-cormorant)] font-light leading-snug mb-5 md:mb-8 hero-title">
               あなたの想いを、<br />
               <span className="italic">Webで形に。</span>
             </h2>
-            <div className="w-16 h-px bg-black mb-8" />
-            <p className="text-sm text-[#666] leading-8 max-w-lg mb-8">
+            <div className="w-10 md:w-16 h-px bg-black mb-5 md:mb-8" />
+            {/* 説明文はPCのみ */}
+            <p className="hidden md:block text-sm text-[#666] leading-8 max-w-lg mb-8">
               大手にはできない、一人一人への丁寧な向き合い方がRumisenseの強みです。
             </p>
-            <div className="flex gap-6 mb-12">
+            {/* 丸バッジはPCのみ */}
+            <div className="hidden md:flex gap-6 mb-12">
               {[
                 { num: "¥0", label: "制作費無料" },
                 { num: "24h", label: "修正対応" },
@@ -105,18 +124,18 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="flex gap-6 hero-btn">
-              <a href="/contact" className="bg-black text-white text-xs tracking-widest px-10 py-4 hover:bg-[#333] transition-colors">
+            <div className="hero-btn flex flex-col gap-3 md:flex-row md:gap-6">
+              <a href="/contact" className="bg-black text-white text-xs tracking-widest px-6 py-3 md:px-8 md:py-4 hover:bg-[#333] transition-colors text-center">
                 無料相談を予約する
               </a>
-              <a href="#works" className="border border-black text-xs tracking-widest px-10 py-4 hover:bg-black hover:text-white transition-all duration-300">
+              <a href="#works" className="hidden md:block border border-black text-xs tracking-widest px-8 py-4 hover:bg-black hover:text-white transition-all duration-300 text-center">
                 実績を見る
               </a>
             </div>
           </div>
 
           {/* 無限スクロール */}
-          <div id="works" className="w-full pb-16 overflow-hidden">
+          <div id="works" className="w-full overflow-hidden mt-12 md:mt-0 pb-0">
             <div className="flex animate-scroll" style={{ width: "max-content" }}>
               {[...works, ...works].map((work, index) => (
                 <a key={index} href={work.url} target="_blank" className="group block mx-6 flex-shrink-0">
@@ -136,85 +155,161 @@ export default function Home() {
       </section>
 
       {/* お悩み */}
-      <section className="py-24 px-16 bg-white animate-fadeUp">
+      <section className="py-16 md:py-24 px-6 md:px-16 bg-white animate-fadeUp">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-16 text-center">
+          <div className="mb-12 md:mb-16 text-center">
             <p className="text-xs tracking-[0.5em] text-[#999] mb-3">PROBLEMS</p>
-            <h3 className="text-4xl font-[family-name:var(--font-cormorant)] font-light">
+            <h3 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light">
               こんなお悩み、<span className="italic">ありませんか？</span>
             </h3>
           </div>
-          <div className="max-w-2xl mx-auto space-y-3">
-            {[
-              "Web制作会社に頼んだら見積もりが高すぎた——",
-              "修正を頼んだら何日も待たされた——",
-              "担当者が変わるたびに説明し直しが必要だった——",
-            ].map((text, i) => (
-              <div key={i} className="flex items-center gap-6 px-8 py-5 bg-[#f8f8f8]" style={{borderLeft: '3px solid #1a2f5e'}}>
-                <span className="text-2xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e] min-w-[32px]">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <p className="text-sm text-[#333] leading-8">{text}</p>
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+            <div className="w-full md:w-1/2">
+              <img src="/mondai.png" alt="お悩みイラスト" className="w-full rounded-sm" />
+            </div>
+            <div className="w-full md:w-1/2 space-y-3">
+              {[
+                "Web制作会社に頼んだら見積もりが高すぎた——",
+                "修正を頼んだら何日も待たされた——",
+                "担当者が変わるたびに説明し直しが必要だった——",
+              ].map((text, i) => (
+                <div key={i} className="flex items-center gap-3 md:gap-6 px-4 md:px-8 py-4 md:py-5 bg-[#f8f8f8]" style={{borderLeft: '3px solid #1a2f5e'}}>
+                  <span className="text-2xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e] min-w-[32px]">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <p className="text-sm text-[#333] leading-7 md:leading-8">{text}</p>
+                </div>
+              ))}
+              <div className="mt-8 p-6 bg-[#f0f4fa] text-center">
+                <p className="text-sm text-[#1a2f5e] leading-8">
+                  Rumisenseなら、<span className="font-bold">すべて解決できます。</span><br />
+                  一人が最初から最後まで、責任を持って対応します。
+                </p>
               </div>
-            ))}
-            <div className="mt-8 p-6 bg-[#f0f4fa] text-center">
-              <p className="text-sm text-[#1a2f5e] leading-8">
-                Rumisenseなら、<span className="font-bold">すべて解決できます。</span><br />
-                一人が最初から最後まで、責任を持って対応します。
-              </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 他社との違い */}
+      <section className="py-16 md:py-24 px-6 md:px-16 bg-[#f8f8f8] animate-fadeUp">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-12 md:mb-16 text-center">
+            <p className="text-xs tracking-[0.5em] text-[#999] mb-3">COMPARISON</p>
+            <h3 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light">
+              大手との、<span className="italic">違い。</span>
+            </h3>
+          </div>
+
+          {/* ヘッダー行 */}
+          <div className="grid grid-cols-[1fr_1fr_1fr] gap-px bg-[#e8e8e8]">
+            <div className="bg-[#f8f8f8]" />
+            <div className="bg-[#e8e8e8] py-3 px-2 text-center">
+              <p className="text-[10px] md:text-xs tracking-widest text-[#888]">大手制作会社</p>
+            </div>
+            <div className="bg-[#1a2f5e] py-3 px-2 text-center">
+              <p className="text-[10px] md:text-xs tracking-widest text-white">Rumisense</p>
+            </div>
+          </div>
+
+          {/* 比較行 */}
+          {[
+            { label: "制作費",      other: "数十〜数百万円",  us: "¥0" },
+            { label: "修正対応",    other: "数日〜数週間",    us: "最短24時間" },
+            { label: "担当者",      other: "複数名・変わる",  us: "1名固定" },
+            { label: "相談・見積り", other: "有料の場合も",    us: "完全無料" },
+            { label: "ヒアリング",  other: "画一的",          us: "個別・丁寧" },
+          ].map((row) => (
+            <div key={row.label} className="grid grid-cols-[1fr_1fr_1fr] gap-px bg-[#e8e8e8] mt-px">
+              <div className="bg-white py-5 px-4 md:px-6 flex items-center">
+                <p className="text-xs md:text-sm text-[#333] tracking-wide">{row.label}</p>
+              </div>
+              <div className="bg-white py-5 px-2 md:px-4 flex items-center justify-center text-center">
+                <p className="text-[11px] md:text-xs text-[#aaa] leading-5">{row.other}</p>
+              </div>
+              <div className="bg-[#f0f4fa] py-5 px-2 md:px-4 flex items-center justify-center text-center">
+                <p className="text-[11px] md:text-xs font-bold text-[#1a2f5e] leading-5">{row.us}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* 強み */}
-      <section className="py-24 px-16 bg-[#1a2f5e] text-white animate-fadeUp">
+      <section className="py-16 md:py-24 px-6 md:px-16 bg-[#1a2f5e] text-white animate-fadeUp">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-16">
-            <p className="text-xs tracking-[0.5em] text-[#666] mb-3">WHY RUMISENSE</p>
-            <h3 className="text-4xl font-[family-name:var(--font-cormorant)] font-light">大手とは、<span className="italic">違う。</span></h3>
+          <div className="mb-12 md:mb-16">
+            <p className="text-xs tracking-[0.5em] text-[#4a6fa5] mb-3">WHY RUMISENSE</p>
+            <h3 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light">大手とは、<span className="italic">違う。</span></h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {strengths.map((s) => (
-              <div key={s.title} className="border-t border-[#333] pt-8">
-                <p className="text-3xl mb-4">{s.icon}</p>
-                <h4 className="text-base font-medium mb-4 text-white">{s.title}</h4>
-                <p className="text-sm text-[#999] leading-7">{s.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+            {strengths.map((s, i) => (
+              <div key={s.title} className="relative pt-10 pb-8 px-6 border border-white/10">
+                <span
+                  className="absolute top-3 right-4 font-[family-name:var(--font-cormorant)] font-light leading-none select-none"
+                  style={{ fontSize: '5rem', color: 'rgba(255,255,255,0.07)' }}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h4 className="text-base font-medium mb-3 text-white relative z-10">{s.title}</h4>
+                <p className="text-sm text-[#7a9cc8] leading-7 relative z-10">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* 実績募集 */}
+      <section className="py-16 md:py-24 px-6 md:px-16 bg-[#f8f8f8] animate-fadeUp">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs tracking-[0.5em] text-[#999] mb-3">WORKS</p>
+          <h3 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light mb-6">
+            実績、<span className="italic">募集中。</span>
+          </h3>
+          <div className="w-8 h-px bg-black mx-auto mb-10" />
+          <p className="text-sm text-[#666] leading-8 mb-2">
+            Rumisenseは<span className="font-bold text-black">2026年5月</span>に始動したばかりのWeb制作屋です。<br />
+            今はまだ実績が少ないため、一緒にサイトを作ってくださるお客様を探しています。
+          </p>
+          <p className="text-sm text-[#666] leading-8 mb-10">
+            「安くていいサイトが欲しい」「新しいお店・サービスを始めた」——<br />
+            そんな方のご協力、お待ちしています。
+          </p>
+          <a href="/contact" className="bg-[#1a2f5e] text-white text-xs tracking-widest px-10 md:px-12 py-4 hover:bg-[#243d75] transition-colors inline-block">
+            実績にご協力いただける方はこちら →
+          </a>
+        </div>
+      </section>
+
       {/* 価格インパクト */}
-      <section className="py-24 px-16 bg-white animate-fadeUp">
+      <section className="py-16 md:py-24 px-6 md:px-16 bg-white animate-fadeUp">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-16 text-center">
+          <div className="mb-12 md:mb-16 text-center">
             <p className="text-xs tracking-[0.5em] text-[#999] mb-3">PRICING</p>
-            <h3 className="text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1a1a1a]">
+            <h3 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light text-[#1a1a1a]">
               制作費、<span className="italic">¥0。</span>
             </h3>
             <p className="text-sm text-[#666] mt-4">初期費用なし。月額だけでプロのサイトが持てます。</p>
           </div>
-          <div className="max-w-2xl mx-auto flex gap-px bg-[#e8e8e8]">
-            <div className="flex-1 bg-[#f8f8f8] px-6 py-8 text-center">
+          <div className="max-w-2xl mx-auto flex flex-col sm:flex-row gap-px bg-[#e8e8e8]">
+            <div className="flex-1 bg-[#f8f8f8] px-4 md:px-6 py-6 md:py-8 text-center">
               <p className="text-xs tracking-[0.2em] text-[#999] mb-4">制作費</p>
-              <p className="text-6xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e] leading-none">¥0</p>
+              <p className="text-5xl md:text-6xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e] leading-none">¥0</p>
               <p className="text-xs text-[#999] mt-2">初期費用なし</p>
             </div>
-            <div className="flex-1 bg-[#1a2f5e] px-6 py-8 text-center">
+            <div className="flex-1 bg-[#1a2f5e] px-4 md:px-6 py-6 md:py-8 text-center">
               <p className="text-xs tracking-[0.2em] text-white/60 mb-4">月額</p>
-              <p className="text-6xl font-[family-name:var(--font-cormorant)] font-light text-white leading-none">¥9,800</p>
+              <p className="text-4xl md:text-6xl font-[family-name:var(--font-cormorant)] font-light text-white leading-none">¥9,800</p>
               <p className="text-xs text-white/40 mt-2">× 6ヶ月〜</p>
             </div>
-            <div className="flex-1 bg-[#f8f8f8] px-6 py-8 text-center">
+            <div className="flex-1 bg-[#f8f8f8] px-4 md:px-6 py-6 md:py-8 text-center">
               <p className="text-xs tracking-[0.2em] text-[#999] mb-4">修正対応</p>
-              <p className="text-6xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e] leading-none">24h</p>
+              <p className="text-5xl md:text-6xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e] leading-none">24h</p>
               <p className="text-xs text-[#999] mt-2">以内に対応</p>
             </div>
           </div>
           <div className="text-center mt-12">
-            <a href="/service" className="border border-black text-xs tracking-widest px-12 py-4 hover:bg-black hover:text-white transition-all duration-300 inline-block">
+            <a href="/service" className="border border-black text-xs tracking-widest px-10 md:px-12 py-4 hover:bg-black hover:text-white transition-all duration-300 inline-block">
               プランの詳細を見る →
             </a>
           </div>
