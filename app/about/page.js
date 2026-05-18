@@ -12,6 +12,7 @@ export default function AboutPage() {
           <li><a href="/service" className="hover:text-black transition-colors">SERVICE</a></li>
           <li><a href="/flow" className="hover:text-black transition-colors">FLOW</a></li>
           <li><a href="/about" className="text-black font-medium">ABOUT</a></li>
+          <li><a href="/blog" className="hover:text-black transition-colors">BLOG</a></li>
           <li>
             <a href="/contact" className="bg-[#1a2f5e] text-white px-6 py-2 text-xs tracking-widest hover:bg-[#333] transition-colors">
               無料相談

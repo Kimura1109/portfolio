@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { createClient } from "microcms-js-sdk";
+import { client } from "@/lib/microcms";
 
-const client = createClient({
-  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
-  apiKey: process.env.MICROCMS_API_KEY,
-});
+export const revalidate = 0;
 
 export default async function BlogPage() {
-  const data = await client.getList({ endpoint: "blogs" });
+  const data = await client.getList({
+    endpoint: "blogs",
+  });
 
   return (
     <main className="min-h-screen bg-white text-[#1a1a1a] font-[family-name:var(--font-noto-sans-jp)]">
@@ -38,25 +37,29 @@ export default async function BlogPage() {
             <p className="text-sm text-[#666] mt-4 leading-8">Web制作に関する情報を発信しています。</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {data.contents.map((post) => (
-              <Link key={post.id} href={`/blog/${post.id}`} className="group block">
-                {post.eyecatch && (
-                  <div className="overflow-hidden mb-4">
-                    <img
-                      src={post.eyecatch.url}
-                      alt={post.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
-                <p className="text-xs text-[#999] mb-2 tracking-widest">
-                  {new Date(post.createdAt).toLocaleDateString("ja-JP")}
-                </p>
-                <h3 className="text-base font-medium leading-7 group-hover:text-[#1a2f5e] transition-colors">
-                  {post.title}
-                </h3>
-              </Link>
-            ))}
+            {data.contents.map((post) => {
+              const title = post.title || post.text || post.name || "タイトルなし";
+              const date = post.publishedAt || post.createdAt || "";
+              return (
+                <Link key={post.id} href={`/blog/${post.id}`} className="group block">
+                  {post?.eyecatch?.url && (
+                    <div className="overflow-hidden mb-4">
+                      <img
+                        src={post.eyecatch.url}
+                        alt={title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <p className="text-xs text-[#999] mb-2 tracking-widest">
+                    {date ? new Date(date).toLocaleDateString("ja-JP") : ""}
+                  </p>
+                  <h3 className="text-base font-medium leading-7 group-hover:text-[#1a2f5e] transition-colors">
+                    {title}
+                  </h3>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
