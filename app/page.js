@@ -98,11 +98,12 @@ export default function Home() {
         {/* コンテンツ */}
         <div className="relative z-10 flex-1 flex flex-col justify-between px-6 md:px-16 pt-16 md:pt-20 pb-16">
           {/* SP: 左55%に収める / PC: 元のmax-w-2xl */}
-          <div className="w-[55%] md:w-auto md:max-w-2xl mt-6 md:mt-20">
+          <div className="w-[55%] md:w-auto md:max-w-2xl mt-24 md:mt-20">
             <p className="text-xs tracking-[0.5em] text-[#999] mb-5 md:mb-8 hero-sub">WEB CREATION</p>
-            <h2 className="text-[1.75rem] md:text-7xl font-[family-name:var(--font-cormorant)] font-light leading-snug mb-5 md:mb-8 hero-title">
+            <h2 className="text-[1.45rem] md:text-7xl font-[family-name:var(--font-cormorant)] font-light leading-snug mb-5 md:mb-8 hero-title">
               あなたの想いを、<br />
-              <span className="italic">Webで形に。</span>
+              <span className="italic md:hidden">webで形に。</span>
+              <span className="italic hidden md:inline">Webで形に。</span>
             </h2>
             <div className="w-10 md:w-16 h-px bg-black mb-5 md:mb-8" />
             {/* 説明文はPCのみ */}
@@ -160,7 +161,8 @@ export default function Home() {
           <div className="mb-12 md:mb-16 text-center">
             <p className="text-xs tracking-[0.5em] text-[#999] mb-3">PROBLEMS</p>
             <h3 className="text-3xl md:text-4xl font-[family-name:var(--font-cormorant)] font-light">
-              こんなお悩み、<span className="italic">ありませんか？</span>
+              <span className="md:hidden">こんなお悩み、<br /><span className="italic">ありませんか？</span></span>
+              <span className="hidden md:inline">こんなお悩み、<span className="italic">ありませんか？</span></span>
             </h3>
           </div>
           <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
