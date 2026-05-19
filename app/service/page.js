@@ -36,16 +36,22 @@ const services = [
 
 const options = [
   {
-    title: "ドメイン接続代行",
-    price: "¥5,500",
+    title: "ドメイン取得サポート",
+    price: "¥2,500",
     sub: "初回のみ",
-    desc: "お持ちのドメインをサイトに接続。難しい設定はすべてお任せください。",
+    desc: "ドメインの選び方から取得まで丁寧にサポート。初めての方も安心してお任せください。",
   },
   {
-    title: "ブログ機能実装",
+    title: "DNS設定・Resend含む",
+    price: "¥5,500",
+    sub: "初回のみ",
+    desc: "お名前.comなどのDNS設定からメール送信環境（Resend）の構築まで一括対応します。",
+  },
+  {
+    title: "ブログ実装・投稿代行",
     price: "¥11,000",
     sub: "月額",
-    desc: "microCMSを使ったブログ機能を実装。記事の投稿・更新が簡単に行えます。",
+    desc: "microCMSを使ったブログ機能を実装。記事の投稿・更新もお任せいただけます（月2回まで）。",
   },
 ];
 
@@ -136,15 +142,13 @@ export default function ServicePage() {
             <h3 className="text-3xl font-[family-name:var(--font-cormorant)] font-light">オプション</h3>
             <p className="text-sm text-[#666] mt-3 leading-8">必要に応じて追加できます。</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e8e8e8]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e8e8e8]">
             {options.map((opt) => (
-              <div key={opt.title} className="bg-white p-6 md:p-10">
-                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-4">
-                  <h4 className="text-base font-medium">{opt.title}</h4>
-                  <div className="text-left sm:text-right">
-                    <span className="text-2xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e]">{opt.price}</span>
-                    <span className="text-xs text-[#999] ml-1">{opt.sub}</span>
-                  </div>
+              <div key={opt.title} className="bg-white p-6 md:p-8">
+                <h4 className="text-sm font-medium mb-2 whitespace-nowrap">{opt.title}</h4>
+                <div className="mb-4">
+                  <span className="text-2xl font-[family-name:var(--font-cormorant)] font-light text-[#1a2f5e]">{opt.price}</span>
+                  <span className="text-xs text-[#999] ml-1">{opt.sub}</span>
                 </div>
                 <p className="text-sm text-[#666] leading-7">{opt.desc}</p>
               </div>
