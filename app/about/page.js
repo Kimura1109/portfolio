@@ -6,40 +6,96 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white text-[#1a1a1a] font-[family-name:var(--font-noto-sans-jp)]">
       <Nav />
 
-      <section className="pt-28 md:pt-40 pb-16 md:pb-32 px-6 md:px-16 bg-[#f8f8f8]">
-        <div className="max-w-3xl mx-auto">
-          <div className="">
-            <p className="text-xs tracking-[0.5em] text-[#999] mb-3">PROFILE</p>
-            <h2 className="text-4xl md:text-5xl font-[family-name:var(--font-cormorant)] font-light mb-2">Keisuke Kimura</h2>
-            <p className="text-sm text-[#999] tracking-widest mb-8">Rumisense / ルミセンス</p>
-            <div className="w-8 h-px bg-black mb-8" />
-            <p className="text-sm text-[#666] leading-8 mb-8">
-              はじめまして、木村恵輔と申します。<br /><br />
-              Rumisenseは、<span className="font-bold text-black">「一人だからこそできること」</span>を大切にしたWeb制作屋です。
-              大手制作会社のように担当者が変わったり、修正に何日もかかったりすることはありません。<br /><br />
-              修正依頼から<span className="font-bold text-black">最短24時間</span>で対応。
-              ヒアリングから公開まで、すべて私一人が責任を持って対応します。<br /><br />
-              まずはZOOMで気軽にお話しましょう。相談は無料です。
-            </p>
-            <div className="space-y-3 text-sm">
-              <div className="flex gap-6 md:gap-8">
-                <span className="text-[#999] w-20 md:w-24 flex-shrink-0">SKILL</span>
-                <span>Next.js / React / Tailwind CSS</span>
-              </div>
-              <div className="flex gap-6 md:gap-8">
-                <span className="text-[#999] w-20 md:w-24 flex-shrink-0">対応エリア</span>
-                <span>全国対応（オンライン）</span>
-              </div>
-              <div className="flex gap-6 md:gap-8">
-                <span className="text-[#999] w-20 md:w-24 flex-shrink-0">修正対応</span>
-                <span>最短24時間</span>
+      {/* ヘッダー */}
+      <section className="pt-28 md:pt-40 pb-16 md:pb-20 px-6 md:px-16 bg-[#f8f8f8]">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs tracking-[0.5em] text-[#999] mb-4">PROFILE</p>
+          <h2 className="text-5xl md:text-7xl font-[family-name:var(--font-cormorant)] font-light mb-3">Keisuke Kimura</h2>
+          <p className="text-sm text-[#999] tracking-widest">Rumisense / ルミセンス</p>
+        </div>
+      </section>
+
+      {/* 第一章：大手での疑問 */}
+      <section className="py-16 md:py-24 px-6 md:px-16 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="md:flex md:gap-20 items-start">
+            <div className="md:w-1/3 mb-8 md:mb-0 md:sticky md:top-24">
+              <p className="text-[10px] tracking-[0.4em] text-[#999] mb-3">CHAPTER 01</p>
+              <h3 className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-light leading-snug">大手で感じた、<br /><span className="italic">疑問。</span></h3>
+            </div>
+            <div className="md:w-2/3 space-y-6 text-sm text-[#555] leading-8">
+              <p>私はかつて、大手のWeb制作会社で働いていました。そこで感じたのは、<span className="font-bold text-black">「本当にお客様のためになっているのか」</span>という疑問です。</p>
+              <p>大手の制作会社では、<span className="font-bold text-black">担当者が修正のたびに変わる</span>ことが珍しくありません。前回の担当者がお客様から聞いていたこと、デザインへの想い、こだわりのポイント——そういった大切な情報が<span className="font-bold text-black">次の担当者に引き継がれないまま</span>、修正作業が進んでしまうのです。</p>
+              <p>その結果、<span className="text-[#c0392b] font-bold">「思っていたものと違う」「また一から説明しなければならない」</span>というお客様の声が後を絶ちませんでした。修正のたびにすれ違いが生まれ、サイトの公開が遅れ、<span className="text-[#c0392b] font-bold">クレームへと発展</span>してしまうこともありました。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 転換点：大きな引用 */}
+      <section className="py-16 md:py-24 px-6 md:px-16 bg-[#1a2f5e]">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-[10px] tracking-[0.4em] text-white/40 mb-8">TURNING POINT</p>
+          <p className="text-3xl md:text-5xl font-[family-name:var(--font-cormorant)] font-light text-white leading-relaxed italic">
+            「これは、変えなければいけない。」
+          </p>
+          <div className="w-12 h-px bg-white/30 mx-auto mt-10" />
+          <p className="text-sm text-white/50 mt-8 leading-7">
+            そう思ったとき、私は個人事業主としてRumisenseを<br className="hidden md:block" />立ち上げることを決意しました。
+          </p>
+        </div>
+      </section>
+
+      {/* 第二章：Rumisenseという選択 */}
+      <section className="py-16 md:py-24 px-6 md:px-16 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="md:flex md:gap-20 items-start">
+            <div className="md:w-1/3 mb-8 md:mb-0 md:sticky md:top-24">
+              <p className="text-[10px] tracking-[0.4em] text-[#999] mb-3">CHAPTER 02</p>
+              <h3 className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-light leading-snug">Rumisenseという、<br /><span className="italic">選択。</span></h3>
+            </div>
+            <div className="md:w-2/3 space-y-6 text-sm text-[#555] leading-8">
+              <p>Rumisenseでは、<span className="font-bold text-black">最初から最後まで私・木村 恵輔が一人で担当</span>します。初回のヒアリングで伺ったお客様の想い、デザインへのこだわり、ビジネスの背景——<span className="font-bold text-black">そのすべてを把握した状態で</span>、修正にも本公開にも臨みます。</p>
+              <p><span className="text-[#c0392b] font-bold">「担当者が変わって話が伝わっていない」</span>——そんなストレスを、Rumisenseでは<span className="font-bold text-black">感じさせません。</span></p>
+              <div className="border-l-2 border-[#1a2f5e] pl-6 py-1">
+                <p className="text-[#1a2f5e] font-bold">個人事業主だからこそできる、一貫した寄り添いで、お客様が本当に求めている最高のサイトをお届けします。</p>
               </div>
             </div>
-            <div className="mt-10 md:mt-12">
-              <a href="/contact" className="bg-black text-white text-xs tracking-widest px-10 md:px-12 py-4 hover:bg-[#333] transition-colors inline-block">
-                無料相談を予約する →
-              </a>
+          </div>
+        </div>
+      </section>
+
+      {/* プロフィールデータ */}
+      <section className="py-16 md:py-20 px-6 md:px-16 bg-[#f8f8f8]">
+        <div className="max-w-4xl mx-auto">
+          <div className="md:flex md:gap-20 items-start">
+            <div className="md:w-1/3 mb-8 md:mb-0">
+              <p className="text-[10px] tracking-[0.4em] text-[#999] mb-3">ABOUT</p>
+              <h3 className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] font-light">木村 恵輔</h3>
             </div>
+            <div className="md:w-2/3 space-y-4 text-sm">
+              <div className="flex gap-8 border-b border-[#e8e8e8] pb-4">
+                <span className="text-[#999] w-24 flex-shrink-0 tracking-wider">SKILL</span>
+                <span className="text-[#444]">Next.js / React / Tailwind CSS</span>
+              </div>
+              <div className="flex gap-8 border-b border-[#e8e8e8] pb-4">
+                <span className="text-[#999] w-24 flex-shrink-0 tracking-wider">対応エリア</span>
+                <span className="text-[#444]">全国対応（オンライン）</span>
+              </div>
+              <div className="flex gap-8 border-b border-[#e8e8e8] pb-4">
+                <span className="text-[#999] w-24 flex-shrink-0 tracking-wider">修正対応</span>
+                <span className="text-[#444]">最短24時間</span>
+              </div>
+              <div className="flex gap-8">
+                <span className="text-[#999] w-24 flex-shrink-0 tracking-wider">担当体制</span>
+                <span className="text-[#444]">木村 恵輔 一名が専任</span>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 md:ml-[calc(33.333%+5rem)]">
+            <a href="/contact" className="bg-[#1a2f5e] text-white text-xs tracking-widest px-10 py-4 hover:bg-[#0f1e3d] transition-colors inline-block">
+              無料相談を予約する →
+            </a>
           </div>
         </div>
       </section>

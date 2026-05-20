@@ -61,16 +61,31 @@ export default function ServicePage() {
       <Nav />
 
       {/* プラン */}
-      <section className="pt-28 md:pt-40 pb-16 md:pb-24 px-6 md:px-16 bg-[#f8f8f8]">
+      <section className="bg-[#f8f8f8]">
+        {/* ヘッダー画像エリア */}
+        <div className="relative pt-28 md:pt-40 pb-16 md:pb-20 overflow-hidden h-[320px] md:h-[380px] flex items-center">
+          <div className="absolute inset-0">
+            <img
+              src="/Gemini_Generated_Image_d9cuxed9cuxed9cu.png"
+              alt=""
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#f8f8f8] via-[#f8f8f8]/90 to-transparent" />
+          </div>
+          <div className="relative z-10 px-6 md:px-16 w-full">
+            <div className="max-w-5xl mx-auto">
+              <p className="text-xs tracking-[0.5em] text-[#999] mb-3">PRICING</p>
+              <h2 className="text-5xl md:text-7xl font-[family-name:var(--font-cormorant)] font-light">Service</h2>
+              <p className="text-sm text-[#666] mt-4 leading-8">
+                制作費無料。月額だけでプロのサイトが持てます。<br />
+                全プラン6ヶ月継続。修正は月5回まで、まとめて出しても1回カウント。
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="px-6 md:px-16 pb-16 md:pb-24">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12 md:mb-16">
-            <p className="text-xs tracking-[0.5em] text-[#999] mb-3">PRICING</p>
-            <h2 className="text-5xl font-[family-name:var(--font-cormorant)] font-light">Service</h2>
-            <p className="text-sm text-[#666] mt-4 leading-8">
-              制作費無料。月額だけでプロのサイトが持てます。<br />
-              全プラン6ヶ月継続。修正は月5回まで、まとめて出しても1回カウント。
-            </p>
-          </div>
 
           {/* 開業記念キャンペーン */}
           <div className="mb-8 relative overflow-hidden bg-[#1a2f5e] text-white px-6 md:px-10 py-6 md:py-8">
@@ -131,6 +146,8 @@ export default function ServicePage() {
               </div>
             ))}
           </div>
+        </div>
+        </div>
         </div>
       </section>
 

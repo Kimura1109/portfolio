@@ -13,13 +13,23 @@ export default async function BlogPage() {
     <main className="min-h-screen bg-white text-[#1a1a1a] font-[family-name:var(--font-noto-sans-jp)]">
       <Nav />
 
-      <section className="pt-28 md:pt-40 pb-16 md:pb-32 px-6 md:px-16">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-12 md:mb-16">
+      {/* ヘッダー */}
+      <section className="relative pt-28 md:pt-40 pb-16 md:pb-20 bg-[#f8f8f8] overflow-hidden h-[320px] md:h-[380px] flex items-center">
+        <div className="absolute inset-0">
+          <img src="/Gemini_Generated_Image_gg9f34gg9f34gg9f.png" alt="" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f8f8f8] via-[#f8f8f8]/90 to-transparent" />
+        </div>
+        <div className="relative z-10 px-6 md:px-16 w-full">
+          <div className="max-w-5xl mx-auto">
             <p className="text-xs tracking-[0.5em] text-[#999] mb-3">BLOG</p>
-            <h2 className="text-5xl font-[family-name:var(--font-cormorant)] font-light">Blog</h2>
+            <h2 className="text-5xl md:text-7xl font-[family-name:var(--font-cormorant)] font-light">Blog</h2>
             <p className="text-sm text-[#666] mt-4 leading-8">Web制作に関する情報を発信しています。</p>
           </div>
+        </div>
+      </section>
+
+      <section className="pt-16 pb-16 md:pb-32 px-6 md:px-16">
+        <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {data.contents.map((post) => {
               const title = post.title || post.text || post.name || "タイトルなし";
