@@ -176,12 +176,12 @@ export default function Home() {
               </div>
               <div className="border-l border-white/20 pl-6 hidden md:block shrink-0">
                 <p className="text-xs text-white/50 leading-7">6ヶ月間契約 / 計 ¥39,000（税込）</p>
-                <p className="text-xs text-white/50 leading-7">制作費無料・修正月5回対応</p>
+                <p className="text-xs text-white/50 leading-7">初期費用¥5,000 / 修正月5回対応</p>
                 <p className="text-xs text-amber-400/70 leading-7">残りわずか。お早めにどうぞ。</p>
               </div>
               <div className="md:hidden text-xs text-white/50 leading-7">
                 <p>6ヶ月間契約 / 計 ¥39,000（税込）</p>
-                <p>制作費無料・修正月5回対応</p>
+                <p>初期費用¥5,000 / 修正月5回対応</p>
                 <p className="text-amber-400/70">残りわずか。お早めにどうぞ。</p>
               </div>
             </div>

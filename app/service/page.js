@@ -9,7 +9,7 @@ const services = [
     pages: "1ページ",
     desc: "シンプルな1ページ構成のLP。まずはWebに出たい方に。",
     price: "¥9,800",
-    sub: "制作費無料 / 月額 × 6ヶ月〜",
+    sub: "初期費用¥5,000 / 月額 × 6ヶ月〜",
     items: ["1ページ構成", "PC・スマホ対応", "SSL対応", "Google Search Console登録", "月5回修正対応"],
   },
   {
@@ -19,18 +19,18 @@ const services = [
     pages: "2〜6ページ",
     desc: "複数ページで会社・サービスをしっかり伝えたい方に。",
     price: "¥12,500",
-    sub: "制作費無料 / 月額 × 6ヶ月〜",
+    sub: "初期費用¥5,000 / 月額 × 6ヶ月〜",
     items: ["2〜6ページ構成", "PC・スマホ対応", "SSL対応", "Google Search Console登録", "月5回修正対応"],
   },
   {
     num: "03",
     title: "Premium",
     tag: "本格サイト",
-    pages: "8ページ〜無制限",
-    desc: "大規模サイトや多機能なWebサイトを構築したい方に。",
-    price: "¥24,500",
-    sub: "制作費無料 / 月額 × 6ヶ月〜",
-    items: ["8ページ〜無制限", "PC・スマホ対応", "SSL対応", "Google Search Console登録", "月5回修正対応"],
+    pages: "7〜12ページ",
+    desc: "複数ページで会社・サービスをしっかり作り込みたい方に。12ページ以上は別途ご相談ください。",
+    price: "¥18,500",
+    sub: "初期費用¥5,000 / 月額 × 6ヶ月〜",
+    items: ["7〜12ページ構成", "PC・スマホ対応", "SSL対応", "Google Search Console登録", "月5回修正対応"],
   },
 ];
 
@@ -106,12 +106,12 @@ export default function ServicePage() {
               </div>
               <div className="border-l border-white/20 pl-6 hidden md:block shrink-0">
                 <p className="text-xs text-white/50 leading-7">6ヶ月間契約 / 計 ¥39,000（税込）</p>
-                <p className="text-xs text-white/50 leading-7">制作費無料・修正月5回対応</p>
+                <p className="text-xs text-white/50 leading-7">初期費用¥5,000 / 修正月5回対応</p>
                 <p className="text-xs text-amber-400/70 leading-7">残りわずか。お早めにどうぞ。</p>
               </div>
               <div className="md:hidden text-xs text-white/50 leading-7">
                 <p>6ヶ月間契約 / 計 ¥39,000（税込）</p>
-                <p>制作費無料・修正月5回対応</p>
+                <p>初期費用¥5,000 / 修正月5回対応</p>
                 <p className="text-amber-400/70">残りわずか。お早めにどうぞ。</p>
               </div>
             </div>
