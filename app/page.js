@@ -304,8 +304,8 @@ export default function Home() {
           </h3>
           <div className="w-8 h-px bg-black mx-auto mb-10" />
           <p className="text-sm text-[#666] leading-8 mb-2">
-            Rumisenseは<span className="font-bold text-black">2026年5月</span>に始動したばかりのWeb制作屋です。<br />
-            今はまだ実績が少ないため、一緒にサイトを作ってくださるお客様を探しています。
+            正直に言います。Rumisenseはまだ始まったばかりです。<br />
+            だからこそ、最初のお客様に全力を注げます。
           </p>
           <p className="text-sm text-[#666] leading-8 mb-10">
             「安くていいサイトが欲しい」「新しいお店・サービスを始めた」——<br />
