@@ -99,3 +99,20 @@ body {
   margin: 1.5rem 0;
   border-radius: 4px;
 }
+/* globals.css に追記 */
+
+.highlight {
+  background: #fff8f0;
+  border-left: 4px solid #f97316;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 14.5px;
+}
+
+.price-card {
+  border: 1.5px solid #e8e0d8;
+  border-radius: 10px;
+  padding: 18px 16px;
+}
+
+/* 必要に応じて記事HTMLで使っているクラスを追加 */
