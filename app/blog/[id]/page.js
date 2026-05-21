@@ -90,10 +90,10 @@ export default async function BlogDetailPage({ params }) {
             {title}
           </h1>
 
-          <div
-            className="prose prose-sm max-w-none text-[#333] leading-8"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
+         <div
+  className="prose prose-sm max-w-none text-[#333] leading-8"
+  dangerouslySetInnerHTML={{ __html: post.html_content || content }}
+/>
 
           <div className="mt-16 pt-8 border-t border-[#e8e8e8] text-center">
             <a
