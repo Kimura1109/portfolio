@@ -16,6 +16,10 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata = {
   title: "Rumisense | ルミセンス",
   description: "制作費無料・月額9,800円のWeb制作。修正最短24時間対応。",
+  metadataBase: new URL("https://www.rumisense.com"),
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/favicon.svg",
   },
