@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rumisense.com
+
+# Sitemaps
+Sitemap: https://rumisense.com/sitemap.xml
