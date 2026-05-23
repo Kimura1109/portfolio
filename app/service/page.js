@@ -35,7 +35,7 @@ export default function ServiceIndexPage() {
             Service
           </h1>
           <p className="text-sm text-white/50 leading-8">
-            Web制作からブログ運用まで。問い合わせが入り続ける仕組みをつくります。
+            Web制作からブログ運用まで。<br className="md:hidden" />問い合わせが入り続ける仕組みをつくります。
           </p>
         </div>
       </section>
@@ -50,8 +50,7 @@ export default function ServiceIndexPage() {
                 HP・LP制作
               </h2>
               <p className="text-sm text-[#666] leading-8 mb-10 max-w-sm">
-                制作費0円。月額だけで、集客できるホームページ・LPを持てます。
-                デザインから公開・修正対応まで、すべてお任せください。
+                制作費0円。月額だけで、<br className="md:hidden" />集客できるホームページ・LPを持てます。<br className="md:hidden" />デザインから公開・修正対応まで、<br className="md:hidden" />すべてお任せください。
               </p>
               <div className="border-l-2 border-amber-400 pl-5 py-1">
                 <p className="text-[10px] tracking-[0.4em] text-amber-600 mb-2">OPENING CAMPAIGN — 先着10名</p>
@@ -84,8 +83,7 @@ export default function ServiceIndexPage() {
                 ブログ入稿代行
               </h2>
               <p className="text-sm text-[#666] leading-8 max-w-sm">
-                キーワード選定からSEO記事の執筆・microCMS入稿まで一括代行。
-                更新が止まらないブログ運用を、月額固定でお任せいただけます。
+                キーワード選定からSEO記事の<br className="md:hidden" />執筆・microCMS入稿まで一括代行。<br className="md:hidden" />更新が止まらないブログ運用を、<br className="md:hidden" />月額固定でお任せいただけます。
               </p>
             </div>
             <div className="shrink-0 md:pt-20 md:text-right">

@@ -39,7 +39,7 @@ export default function BlogServicePage() {
           <h1 className="text-5xl md:text-7xl font-[family-name:var(--font-cormorant)] font-light text-white mb-4">
             ブログ入稿代行
           </h1>
-          <p className="text-sm text-white/50 leading-8">プロが確実に問い合わせ率を上げる、ブログ運用を代行します。</p>
+          <p className="text-sm text-white/50 leading-8">プロが確実に問い合わせ率を上げる、<br className="md:hidden" />ブログ運用を代行します。</p>
         </div>
       </section>
 
@@ -79,7 +79,7 @@ export default function BlogServicePage() {
             <p className="text-[10px] tracking-[0.6em] text-[#bbb] mb-4">WHAT WE DO</p>
             <h2 className="text-4xl font-[family-name:var(--font-cormorant)] font-light">できること</h2>
             <p className="text-sm text-[#999] mt-3 leading-7">
-              キーワード選定から入稿・送信まで、ブログ運用をまるごとお任せいただけます。
+              キーワード選定から入稿・送信まで、<br className="md:hidden" />ブログ運用をまるごとお任せいただけます。
             </p>
           </div>
           <div className="border border-[#e8e8e8] bg-white">

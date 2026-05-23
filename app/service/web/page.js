@@ -68,7 +68,7 @@ export default function WebServicePage() {
           <h1 className="text-5xl md:text-7xl font-[family-name:var(--font-cormorant)] font-light text-white mb-4">
             HP・LP制作
           </h1>
-          <p className="text-sm text-white/50 leading-8">制作費0円。月額だけで、集客できるホームページ・LPを持てます。</p>
+          <p className="text-sm text-white/50 leading-8">制作費0円。月額だけで、<br className="md:hidden" />集客できるホームページ・LPを持てます。</p>
         </div>
       </section>
 
@@ -79,7 +79,7 @@ export default function WebServicePage() {
             <div className="border-l-2 border-amber-400 pl-6 py-1">
               <p className="text-[10px] tracking-[0.5em] text-amber-600 mb-3">GRAND OPENING CAMPAIGN — 先着10名様限定</p>
               <p className="text-lg md:text-xl font-[family-name:var(--font-cormorant)] font-light text-[#1a1a1a] leading-relaxed">
-                開業記念として、Basicプランを特別価格でご提供しています
+                開業記念として、<br className="md:hidden" />Basicプランを特別価格でご提供しています
               </p>
             </div>
             <div className="pl-6 md:pl-0 shrink-0">
@@ -100,7 +100,7 @@ export default function WebServicePage() {
           <div className="mb-14">
             <p className="text-[10px] tracking-[0.6em] text-[#bbb] mb-4">PLAN</p>
             <h2 className="text-4xl font-[family-name:var(--font-cormorant)] font-light">料金プラン</h2>
-            <p className="text-xs text-[#999] mt-3 leading-7">全プラン・初期費用¥5,000 / 6ヶ月継続 / 修正は月5回まで</p>
+            <p className="text-xs text-[#999] mt-3 leading-7">全プラン・初期費用¥5,000 / 6ヶ月継続<br className="md:hidden" /> / 修正は月5回まで</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 border border-[#e8e8e8]">
             {services.map((s) => (
