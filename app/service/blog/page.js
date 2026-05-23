@@ -77,7 +77,7 @@ export default function BlogServicePage() {
               </div>
             ))}
           </div>
-          <p className="text-xs text-[#bbb] mt-8 leading-7">
+          <p className="text-xs text-[#777] mt-8 leading-7">
             ひとつでも当てはまる方は、Rumisenseのブログ代行がお役に立てます。
           </p>
         </div>
@@ -89,7 +89,7 @@ export default function BlogServicePage() {
           <div className="mb-14">
             <p className="text-[10px] tracking-[0.6em] text-[#bbb] mb-4">WHAT WE DO</p>
             <h2 className="text-4xl font-[family-name:var(--font-cormorant)] font-light">できること</h2>
-            <p className="text-sm text-[#999] mt-3 leading-7">
+            <p className="text-sm text-[#444] mt-3 leading-7">
               キーワード選定から入稿・送信まで、<br className="md:hidden" />ブログ運用をまるごとお任せいただけます。
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function BlogServicePage() {
                 </span>
                 <div>
                   <p className="text-sm font-medium text-[#1a1a1a] mb-1">{item.title}</p>
-                  <p className="text-xs text-[#999] leading-6">{item.desc}</p>
+                  <p className="text-xs text-[#444] leading-6">{item.desc}</p>
                 </div>
               </div>
             ))}

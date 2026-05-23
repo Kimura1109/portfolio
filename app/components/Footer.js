@@ -7,7 +7,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <p className="text-xl font-[family-name:var(--font-cormorant)] font-light text-white tracking-[0.2em] mb-1">RUMISENSE</p>
             <p className="text-[9px] tracking-[0.35em] text-white/25 mb-6">ルミセンス</p>
-            <p className="text-xs text-white/20 leading-7 mb-8">
+            <p className="text-xs text-white/45 leading-7 mb-8">
               Web制作・ブログ入稿代行<br />
               個人事業主 / 木村 恵輔
             </p>
@@ -52,7 +52,7 @@ export default function Footer() {
             <a href="/contact" className="block border border-white/15 text-white/50 text-[9px] tracking-[0.2em] md:tracking-[0.4em] px-3 py-3.5 hover:border-white/35 hover:text-white/80 transition-all duration-300 text-center mb-5">
               無料相談を予約する →
             </a>
-            <p className="text-[10px] text-white/15 leading-7">
+            <p className="text-[10px] text-white/40 leading-7">
               まずはお気軽にご相談ください。<br />無料でご対応いたします。
             </p>
           </div>

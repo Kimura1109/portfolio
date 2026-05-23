@@ -54,8 +54,8 @@ export default function Home() {
                 <p className="text-[9px] tracking-[0.7em] text-[#aaa]">WEB CREATION / RUMISENSE</p>
               </div>
               <h1 className="text-[2.1rem] md:text-[7.2vw] font-[family-name:var(--font-cormorant)] font-light leading-[1.3] md:leading-[1.05] tracking-tight mb-10 md:mb-10">
-                あなたの想いを、<br />
-                <em className="not-italic italic text-[#1a2f5e]">Webで形に。</em>
+                あなたの想いを<br />
+                <em className="not-italic italic text-[#1a2f5e]">"Webで形に"</em>
               </h1>
               <p className="hidden md:block text-sm text-[#777] leading-9 max-w-xs mb-12">
                 大手にはできない、一人一人への<br />
@@ -116,7 +116,7 @@ export default function Home() {
                 <span className="text-sm text-white/30 mb-2">/月</span>
                 <span className="text-sm text-white/20 line-through mb-2">通常 ¥9,800</span>
               </div>
-              <p className="text-xs text-white/25 leading-7 mb-6">6ヶ月間契約 / 初期費用¥5,000 / 修正月5回対応</p>
+              <p className="text-xs text-white/55 leading-7 mb-6">6ヶ月間契約 / 初期費用¥5,000 / 修正月5回対応</p>
               <a href="/contact" className="inline-flex items-center gap-3 text-[9px] tracking-[0.4em] text-white/50 hover:text-white/80 transition-colors">
                 <span className="w-6 h-px bg-white/30 block" />この価格で相談する
               </a>
@@ -175,7 +175,7 @@ export default function Home() {
                 {item.ja.split('、')[0]}、<br className="md:hidden" />{item.ja.split('、').slice(1).join('、')}
               </h3>
               <div className="w-6 h-px bg-[#e0e0e0] mb-6" />
-              <p className="text-xs text-[#aaa] leading-8 max-w-xs">{item.desc}</p>
+              <p className="text-xs text-[#444] leading-8 max-w-xs">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -206,8 +206,8 @@ export default function Home() {
           <p className="text-[9px] tracking-[0.6em] text-white/15 mb-12">04 — A PROMISE</p>
           <blockquote className="text-[1.65rem] md:text-[4.8rem] font-[family-name:var(--font-cormorant)] font-light leading-[1.35] text-white">
             「また説明し直しか」<br />
-            <span className="text-white/25">そんなストレス、</span><br />
-            <em className="not-italic italic">Rumisenseには<br className="md:hidden" />ありません。</em>
+            <span className="text-white/25">そんなストレス</span><br />
+            <em className="not-italic italic">"Rumisenseには<br className="md:hidden" />ありません"</em>
           </blockquote>
           <div className="mt-14 flex items-center gap-6">
             <div className="w-10 h-px bg-white/15" />
@@ -230,7 +230,7 @@ export default function Home() {
             <div>
               <p className="text-[9px] tracking-[0.6em] text-[#ccc] mb-5">05 — COMPARISON</p>
               <h2 className="text-3xl md:text-[3.2rem] font-[family-name:var(--font-cormorant)] font-light leading-snug">
-                大手との、<span className="italic">違い。</span>
+                大手との<span className="italic">"違い"</span>
               </h2>
             </div>
           </div>
@@ -268,7 +268,7 @@ export default function Home() {
               </tbody>
             </table>
           </div>
-          <p className="text-[10px] text-[#e0e0e0] mt-6 leading-7">※ A社・B社・C社はRumisenseが業界調査をもとに分類した大手Web制作会社の一例です。</p>
+          <p className="text-[10px] text-[#999] mt-6 leading-7">※ A社・B社・C社はRumisenseが業界調査をもとに分類した大手Web制作会社の一例です。</p>
         </div>
       </section>
 
@@ -281,7 +281,7 @@ export default function Home() {
             <div className="md:w-[38%] mb-16 md:mb-0 md:sticky md:top-32">
               <p className="text-[9px] tracking-[0.6em] text-[#ccc] mb-5">06 — WHY RUMISENSE</p>
               <h2 className="text-3xl md:text-[3.2rem] font-[family-name:var(--font-cormorant)] font-light leading-snug">
-                大手とは、<br /><span className="italic">違う。</span>
+                大手とは<br /><span className="italic">"違う"</span>
               </h2>
               <div className="w-8 h-px bg-[#1a2f5e] mt-10 hidden md:block" />
             </div>
@@ -298,7 +298,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-xl md:text-2xl font-[family-name:var(--font-cormorant)] font-light mb-3 leading-snug">{s.title}</h3>
-                    <p className="text-xs text-[#999] leading-8">{s.desc}</p>
+                    <p className="text-xs text-[#444] leading-8">{s.desc}</p>
                   </div>
                 </div>
               ))}
@@ -318,7 +318,7 @@ export default function Home() {
             <div>
               <p className="text-[9px] tracking-[0.6em] text-[#ccc] mb-5">08 — WORKS</p>
               <h2 className="text-3xl md:text-[3.2rem] font-[family-name:var(--font-cormorant)] font-light leading-snug">
-                実績、<span className="italic">募集中。</span>
+                実績  <span className="italic">"募集中"</span>
               </h2>
             </div>
             <a href="/contact" className="text-[9px] tracking-[0.4em] text-[#1a2f5e] hover:opacity-50 transition-opacity flex items-center gap-3 self-start md:self-end">
@@ -339,7 +339,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-14 md:mt-20 border-t border-[#e2e2e2] pt-12">
-            <p className="text-sm text-[#bbb] leading-9 max-w-lg">
+            <p className="text-sm text-[#555] leading-9 max-w-lg">
               Rumisenseはまだ始まったばかりです。だからこそ、最初のお客様に全力を注げます。「安くていいサイトが欲しい」——そんな方のご協力をお待ちしています。
             </p>
           </div>
@@ -355,10 +355,10 @@ export default function Home() {
             <div>
               <p className="text-[9px] tracking-[0.6em] text-white/15 mb-5">09 — PRICING</p>
               <h2 className="text-4xl md:text-[5rem] font-[family-name:var(--font-cormorant)] font-light text-white leading-tight">
-                制作費、<span className="italic">¥0。</span>
+                制作費  <span className="italic">"¥0。"</span>
               </h2>
             </div>
-            <p className="text-xs text-white/20 leading-8 max-w-xs">月額だけで、プロのサイトが持てます。</p>
+            <p className="text-xs text-white/50 leading-8 max-w-xs">月額だけで、プロのサイトが持てます。</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 border border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {[
@@ -377,7 +377,7 @@ export default function Home() {
                 </div>
                 <ul className="space-y-4 border-t border-white/10 pt-8 mt-auto">
                   {plan.features.map((f, j) => (
-                    <li key={j} className="text-xs text-white/30 flex items-center gap-3">
+                    <li key={j} className="text-xs text-white/55 flex items-center gap-3">
                       <span className="w-3 h-px bg-white/15 shrink-0" />{f}
                     </li>
                   ))}
@@ -403,7 +403,7 @@ export default function Home() {
           <span className="hidden md:inline">まず、<span className="italic text-[#1a2f5e]">話してみてください。</span></span>
         </h2>
         <div className="w-8 h-px bg-[#e8e8e8] mx-auto mb-12" />
-        <p className="text-sm text-[#c0c0c0] leading-10 mb-16 max-w-xs mx-auto relative z-10">
+        <p className="text-sm text-[#555] leading-10 mb-16 max-w-xs mx-auto relative z-10">
           どんなサイトを作りたいか。<br />
           今どんな悩みがあるか。<br />
           それだけ教えていただければ十分です。
