@@ -54,7 +54,7 @@ export default function Home() {
                 <p className="text-[9px] tracking-[0.7em] text-[#aaa]">WEB CREATION / RUMISENSE</p>
               </div>
               <h1 className="text-[2.1rem] md:text-[7.2vw] font-[family-name:var(--font-cormorant)] font-light leading-[1.3] md:leading-[1.05] tracking-tight mb-10 md:mb-10">
-                あなたの想いを<br />
+                <span className="whitespace-nowrap">あなたの想いを</span><br />
                 <em className="not-italic italic text-[#1a2f5e]">"Webで形に"</em>
               </h1>
               <p className="hidden md:block text-sm text-[#777] leading-9 max-w-xs mb-12">

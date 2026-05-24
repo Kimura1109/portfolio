@@ -13,6 +13,16 @@ export default function Nav({ dark = false }) {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  // iframeで埋め込まれた際にスクロール位置を親に送信
+  useEffect(() => {
+    const send = () => {
+      try { window.parent.postMessage({ type: 'iframe-scroll', scrollY: window.scrollY }, '*') } catch {}
+    }
+    send()
+    window.addEventListener('scroll', send, { passive: true })
+    return () => window.removeEventListener('scroll', send)
+  }, []);
+
   const links = [
     { href: "/service", label: "SERVICE" },
     { href: "/flow", label: "FLOW" },
